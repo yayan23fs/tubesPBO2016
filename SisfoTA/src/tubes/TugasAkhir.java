@@ -43,5 +43,9 @@ public class TugasAkhir {
       return pembimbing[indeks];
     return null;
   }
+  public void removePembimbing(String nip){
+    if(pembimbing[0].getNip().equals(nip)) pembimbing[0]=null;
+    if(pembimbing[1].getNip().equals(nip)) pembimbing[1]=null;
+  }
   
 }

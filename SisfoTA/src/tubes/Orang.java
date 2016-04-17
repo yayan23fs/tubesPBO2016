@@ -16,6 +16,10 @@ public abstract class Orang {
   private Date tgl;
   private String address;
   private String telp;
+  
+  public Orang(){
+    
+  }
 
   public Orang(String nama, Date tgl, String address, String telp) {
     this.nama = nama;

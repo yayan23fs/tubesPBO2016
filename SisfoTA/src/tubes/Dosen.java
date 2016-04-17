@@ -17,6 +17,10 @@ public class Dosen extends Orang{
   private boolean statusPembimbing;
   private int jum;
   
+  public Dosen(){
+    super();
+  }
+  
   public Dosen(String nama, Date tgl, String address, String telp, String nip, boolean statusPembimbing){
     super(nama, tgl, address, telp);
     this.nip = nip;
@@ -80,6 +84,12 @@ public class Dosen extends Orang{
 
   public void setJum(int jum) {
     this.jum = jum;
+  }
+  
+  @Override 
+  public boolean equals(Object o){
+    if(o instanceof String) return nip.equals(o);
+    return super.equals(o);
   }
   
 }

@@ -16,13 +16,15 @@ public class Mahasiswa extends Orang {
   private String nim;
   private  boolean statusLulus ;
   
-  public Mahasiswa(String nama, Date tgl, String address, String telp, String nip, boolean statusLulus){
+  public Mahasiswa(){
+    super();
+  }
+  
+  public Mahasiswa(String nim, String nama, Date tgl, String address, String telp, String nip, boolean statusLulus){
     super(nama, tgl, address, telp);
     this.nim = nim;
     this.statusLulus = false;
   }
-  
-  
   public void createTA(String judul){
     this.tugasAkhir = new TugasAkhir(judul);
   } 
@@ -55,4 +57,9 @@ public class Mahasiswa extends Orang {
     this.statusLulus = statusLulus;
   }
   
+  @Override 
+  public boolean equals(Object o){
+    if(o instanceof String) return nim.equals(o);
+    return super.equals(o);
+  }
 }

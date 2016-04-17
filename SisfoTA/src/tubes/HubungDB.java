@@ -11,6 +11,7 @@ package tubes;
  */
 import java.io.*;
 import java.sql.*;
+import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -64,8 +65,8 @@ public class HubungDB {
         String alamat = rs.getString("alamat");
         String telp = rs.getString("telp");
         boolean status = rs.getBoolean("status");
-        Mahasiswa m = new Mahasiswa(nama,tgl,alamat,telp,nim, status);
-        query = "select * from tugasakhir where judul='"+rs.getString("judul")+"'";
+        Mahasiswa m = new Mahasiswa(nim,nama,tgl,alamat,telp,nim, status);
+        query = "select * from tugasakhir where nim='"+nim+"'";
         rs = getData(query);
         if(rs.isBeforeFirst()){
           String judul = rs.getString("judul");
@@ -102,7 +103,7 @@ public class HubungDB {
         String alamat = rs.getString("alamat");
         String telp = rs.getString("telp");
         boolean status = rs.getBoolean("status");
-        Mahasiswa m = new Mahasiswa(nama,tgl,alamat,telp,nim, status);   
+        Mahasiswa m = new Mahasiswa(nim, nama,tgl,alamat,telp,nim, status);   
         return m;
       }
     } catch (SQLException ex) {
@@ -117,14 +118,98 @@ public class HubungDB {
     executeQuery(query);
   }
   
+  public ArrayList<Mahasiswa> getAllMahasiswa(){
+    ArrayList<Mahasiswa> ret = new ArrayList();
+    try {
+      String query = "select * from mahasiswa";
+      ResultSet rs = getData(query);
+      if(rs.isBeforeFirst()){
+        while(rs.next()){
+          Mahasiswa m = new Mahasiswa();
+          m.setNama(rs.getString("nama"));
+          m.setTgl(rs.getDate("tglLahir"));
+          m.setAddress(rs.getString("alamat"));
+          m.setTelp(rs.getString("telp"));
+          m.setNim(rs.getString("nim"));
+          m.setStatusLulus(rs.getBoolean("status"));
+          ret.add(m);
+        }
+      }
+      rs.close();
+    } catch (SQLException ex) {
+      Logger.getLogger(HubungDB.class.getName()).log(Level.SEVERE, null, ex);
+    }
+    return ret;
+  }
+  
+  public void getAllKelompokTA(Dosen d, ArrayList<Mahasiswa> rm){
+    try {
+      String query="select * from kelompokta where dosen='"+d.getNip()+"'";
+      ResultSet rs = getData(query);
+      if(rs.isBeforeFirst()){
+        try {
+          int jum = 0;
+          while(rs.next()){
+            d.createKelompokTA(rs.getString("topik"));
+            jum++;
+          }
+          rs.close();
+          for(int i=0;i<jum;i++){
+            KelompokTA k = d.getKelompokTA(i);
+            query = "select nim from mahasiswa where topik ='"+k.getTopik()+"'";
+            rs = getData(query);
+            if(rs.isBeforeFirst()){
+              while(rs.next()){
+                String nim = rs.getString("nim");
+                k.addAnggota(rm.get(rm.indexOf(nim)));
+              }
+            }
+          }
+        } catch (SQLException ex) {
+          Logger.getLogger(HubungDB.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        rs.close();
+      }
+    } catch (SQLException ex) {
+      Logger.getLogger(HubungDB.class.getName()).log(Level.SEVERE, null, ex);
+    }
+  }
+  
+  public void getTugasAkhir(ArrayList<Dosen> rd, Mahasiswa m){
+    try {
+      String query="select * from tugasakhir where nim='"+m.getNim()+"'";
+      ResultSet rs = getData(query);
+      if(rs.isBeforeFirst()){
+        try {
+          rs.next();
+          m.createTA(rs.getString("judul"));
+          TugasAkhir ta = m.getTugasAkhir();
+          String nip = rs.getString("pembimbing1");
+          if(nip!=null){
+            ta.setPembimbing(rd.get(rd.indexOf(nip)), 0);
+          }
+          nip = rs.getString("pembimbing2");
+          if(nip!=null){
+            ta.setPembimbing(rd.get(rd.indexOf(nip)), 0);
+          }
+          rs.close();
+        } catch (SQLException ex) {
+          Logger.getLogger(HubungDB.class.getName()).log(Level.SEVERE, null, ex);
+        }
+      }
+    } catch (SQLException ex) {
+      Logger.getLogger(HubungDB.class.getName()).log(Level.SEVERE, null, ex);
+    }
+  }
+  
   public void saveDosen(Dosen d){
     String query = "insert into dosen values(";
     query += "'"+d.getNama()+"','"+d.getTgl()+","+d.getAddress()+"','"+d.getTelp()+"',"+d.getNip()+","+d.isStatusPembimbing()+")";
     executeQuery(query);
   }
   public Dosen getDosen(String nip){
-    String query = "select * from dosen where nip="+nip;
-    ResultSet rs = getData(query);
+    String query = "select * from dosen where nip='"+nip+"'";
+    ResultSet rs = getData(query),rs2;
     try {
       if(rs.isBeforeFirst()){
         rs.next();
@@ -134,6 +219,7 @@ public class HubungDB {
         String telp = rs.getString("telp");
         boolean status = rs.getBoolean("status");
         query = "select * from kelompokta where dosen='"+nip+"'";
+        rs.close();
         rs = getData(query);
         Dosen d = new Dosen(nama,tgl,alamat,telp,nip, status);
         if(rs.isBeforeFirst()){
@@ -145,13 +231,14 @@ public class HubungDB {
             ResultSet r = getData(query);
             if(r.isBeforeFirst()){
               while(r.next()){
-                String namaMhs = rs.getString("nama");
-                Date tglMhs = rs.getDate("tglLahir");
-                String alamatMhs = rs.getString("alamat");
-                String telpMhs = rs.getString("telp");
-                String nimMhs = rs.getString("nim");
-                boolean statusMhs = rs.getBoolean("status");
-                Mahasiswa m = new Mahasiswa(namaMhs, tglMhs, alamatMhs, telpMhs, nimMhs, statusMhs);
+                String namaMhs = r.getString("nama");
+                Date tglMhs = r.getDate("tglLahir");
+                String alamatMhs = r.getString("alamat");
+                String telpMhs = r.getString("telp");
+                String nimMhs = r.getString("nim");
+                boolean statusMhs = r.getBoolean("status");
+                Mahasiswa m = 
+                        new Mahasiswa(nimMhs, namaMhs, tglMhs, alamatMhs, telpMhs, nimMhs, statusMhs);
                 k.addAnggota(m);
               }
             }
@@ -166,8 +253,8 @@ public class HubungDB {
     return null;
   }
   
-  private Dosen getDosenOnly(String nip){
-    String query = "select * from dosen where nip="+nip;
+  public Dosen getDosenOnly(String nip){
+    String query = "select * from dosen where nip='"+nip+"'";
     ResultSet rs = getData(query);
     try {
       if(rs.isBeforeFirst()){
@@ -179,6 +266,7 @@ public class HubungDB {
         boolean status = rs.getBoolean("status");
         return new Dosen(nama,tgl,alamat,telp,nip, status);
       }
+      rs.close();
     } catch (SQLException ex) {
       Logger.getLogger(HubungDB.class.getName()).log(Level.SEVERE, null, ex);
     }
@@ -191,6 +279,31 @@ public class HubungDB {
     executeQuery(query);
   }
   
+  public ArrayList<Dosen> getAllDosen(){
+    ArrayList<Dosen> ret = new ArrayList<>();
+    try {
+      String query = "select * from dosen";
+      ResultSet rs = getData(query);
+      if(rs.isBeforeFirst()){
+        while(rs.next()){
+          Dosen d = new Dosen();
+          d.setNama(rs.getString("nama"));
+          d.setTgl(rs.getDate("tglLahir"));
+          d.setAddress(rs.getString("alamat"));
+          d.setTelp(rs.getString("telp"));
+          d.setNip(rs.getString("nip"));
+          d.setStatusPembimbing(rs.getBoolean("status"));
+          ret.add(d);
+        }
+        rs.close();
+      }
+      rs.close();
+    } catch (SQLException ex) {
+      Logger.getLogger(HubungDB.class.getName()).log(Level.SEVERE, null, ex);
+    }
+    return ret;
+  }
+  
   public User getUser(String username, String password){
     try {
       String query = "select * from user where username='"+username+"' and password='"+password+"'";
@@ -201,6 +314,7 @@ public class HubungDB {
         boolean isDosen = rs.getBoolean("isdosen");
         return new User(kode, isDosen);
       }
+      rs.close();
     } catch (SQLException ex) {
       Logger.getLogger(HubungDB.class.getName()).log(Level.SEVERE, null, ex);
     }
