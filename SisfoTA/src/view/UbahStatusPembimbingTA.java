@@ -28,6 +28,7 @@ public class UbahStatusPembimbingTA extends javax.swing.JFrame {
   }
 
   public UbahStatusPembimbingTA(Dosen d, HubungDB hdb,ArrayList<Mahasiswa> lm) {
+    initComponents();
     this.d = d;
     this.hdb = hdb;
     this.listMahasiswa= lm;

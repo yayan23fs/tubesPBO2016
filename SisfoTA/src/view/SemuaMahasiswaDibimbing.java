@@ -27,6 +27,7 @@ public class SemuaMahasiswaDibimbing extends javax.swing.JFrame {
   }
 
   public SemuaMahasiswaDibimbing(ArrayList<Mahasiswa> lm, Dosen d) {
+    initComponents();
     this.lm = lm;
     this.d = d;
   }

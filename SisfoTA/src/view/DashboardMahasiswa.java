@@ -25,6 +25,7 @@ public class DashboardMahasiswa extends javax.swing.JFrame {
   }
 
   public DashboardMahasiswa(Mahasiswa m, HubungDB hdb) {
+    initComponents();
     this.m = m;
     this.hdb = hdb;
   }

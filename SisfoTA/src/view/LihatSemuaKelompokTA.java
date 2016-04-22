@@ -24,6 +24,7 @@ public class LihatSemuaKelompokTA extends javax.swing.JFrame {
   }
 
   public LihatSemuaKelompokTA(Dosen d) {
+    initComponents();
     this.d = d;
   }
   public void isiTabel(){

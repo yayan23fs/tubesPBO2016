@@ -25,6 +25,7 @@ public class RevisiJudulTA extends javax.swing.JFrame {
   }
 
   public RevisiJudulTA(Mahasiswa m, HubungDB hdb) {
+    initComponents();
     this.m = m;
     this.hdb = hdb;
   }

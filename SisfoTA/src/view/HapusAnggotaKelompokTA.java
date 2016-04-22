@@ -28,6 +28,7 @@ public class HapusAnggotaKelompokTA extends javax.swing.JFrame {
   }
 
   public HapusAnggotaKelompokTA(Dosen d, HubungDB hdb, ArrayList<Mahasiswa> listMahasiswa) {
+    initComponents();
     this.d = d;
     this.hdb = hdb;
     this.listMahasiswa = listMahasiswa;

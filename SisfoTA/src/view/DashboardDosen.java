@@ -29,6 +29,7 @@ public class DashboardDosen extends javax.swing.JFrame {
   }
 
   public DashboardDosen(Dosen d, HubungDB hdb, ArrayList<Mahasiswa> l) {
+    initComponents();
     this.d = d;
     this.hdb = hdb;
     this.listMahasiswa= l;
