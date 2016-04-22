@@ -11,7 +11,7 @@ package tubes;
  */
 import java.util.ArrayList;
 import java.util.Scanner;
-
+import models.*;
 public class AplikasiKonsol {
   private ArrayList<Dosen> listDosen;
   private ArrayList<Mahasiswa> listMahasiswa;

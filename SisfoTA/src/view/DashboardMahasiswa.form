@@ -50,8 +50,8 @@
                   <EmptySpace min="-2" pref="129" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" max="-2" attributes="0">
                       <Component id="jLabel1" max="32767" attributes="0"/>
-                      <Component id="jButton1" max="32767" attributes="0"/>
-                      <Component id="jButton2" max="32767" attributes="0"/>
+                      <Component id="butBuatTA" max="32767" attributes="0"/>
+                      <Component id="butRevisiJudulTA" max="32767" attributes="0"/>
                   </Group>
                   <EmptySpace pref="144" max="32767" attributes="0"/>
               </Group>
@@ -63,9 +63,9 @@
                   <EmptySpace max="-2" attributes="0"/>
                   <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="82" max="-2" attributes="0"/>
-                  <Component id="jButton1" min="-2" max="-2" attributes="0"/>
+                  <Component id="butBuatTA" min="-2" max="-2" attributes="0"/>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
-                  <Component id="jButton2" min="-2" max="-2" attributes="0"/>
+                  <Component id="butRevisiJudulTA" min="-2" max="-2" attributes="0"/>
                   <EmptySpace pref="107" max="32767" attributes="0"/>
               </Group>
           </Group>
@@ -77,12 +77,12 @@
             <Property name="text" type="java.lang.String" value="Dashboard Mahasiswa"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JButton" name="jButton1">
+        <Component class="javax.swing.JButton" name="butBuatTA">
           <Properties>
             <Property name="text" type="java.lang.String" value="Buat TA"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JButton" name="jButton2">
+        <Component class="javax.swing.JButton" name="butRevisiJudulTA">
           <Properties>
             <Property name="text" type="java.lang.String" value="Revisi Judul TA"/>
           </Properties>

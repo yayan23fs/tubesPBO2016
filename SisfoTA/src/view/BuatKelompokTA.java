@@ -5,6 +5,11 @@
  */
 package view;
 
+import controllers.BuatKelompokTAController;
+import javax.swing.JButton;
+import models.Dosen;
+import models.HubungDB;
+
 /**
  *
  * @author YAYAN
@@ -14,9 +19,34 @@ public class BuatKelompokTA extends javax.swing.JFrame {
   /**
    * Creates new form BuatKelompokTA
    */
+  private Dosen d;
+  HubungDB hdb;
   public BuatKelompokTA() {
     initComponents();
   }
+
+  public BuatKelompokTA(Dosen d, HubungDB hdb){
+    initComponents();
+    this.d=d;
+    this.hdb=hdb;
+    this.butInput.addActionListener(new BuatKelompokTAController(this));
+  }
+
+  public Dosen getD() {
+    return d;
+  }
+
+  public JButton getButInput() {
+    return butInput;
+  }
+  public String getTopik(){
+    return textInput.getText();
+  }
+
+  public HubungDB getHdb() {
+    return hdb;
+  }
+  
 
   /**
    * This method is called from within the constructor to initialize the form.
@@ -29,18 +59,16 @@ public class BuatKelompokTA extends javax.swing.JFrame {
 
     jPanel1 = new javax.swing.JPanel();
     jLabel1 = new javax.swing.JLabel();
-    jTextField1 = new javax.swing.JTextField();
+    textInput = new javax.swing.JTextField();
     jLabel2 = new javax.swing.JLabel();
-    jButton1 = new javax.swing.JButton();
-
-    setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+    butInput = new javax.swing.JButton();
 
     jLabel1.setText("Buat Kelompok TA");
 
     jLabel2.setText("Topik");
 
-    jButton1.setText("Input");
-    jButton1.setToolTipText("");
+    butInput.setText("Input");
+    butInput.setToolTipText("");
 
     javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
     jPanel1.setLayout(jPanel1Layout);
@@ -55,10 +83,10 @@ public class BuatKelompokTA extends javax.swing.JFrame {
             .addGap(51, 51, 51)
             .addComponent(jLabel2)
             .addGap(35, 35, 35)
-            .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 204, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addComponent(textInput, javax.swing.GroupLayout.PREFERRED_SIZE, 204, javax.swing.GroupLayout.PREFERRED_SIZE))
           .addGroup(jPanel1Layout.createSequentialGroup()
             .addGap(142, 142, 142)
-            .addComponent(jButton1)))
+            .addComponent(butInput)))
         .addContainerGap(65, Short.MAX_VALUE))
     );
     jPanel1Layout.setVerticalGroup(
@@ -68,10 +96,10 @@ public class BuatKelompokTA extends javax.swing.JFrame {
         .addComponent(jLabel1)
         .addGap(18, 18, 18)
         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-          .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+          .addComponent(textInput, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
           .addComponent(jLabel2))
         .addGap(28, 28, 28)
-        .addComponent(jButton1)
+        .addComponent(butInput)
         .addContainerGap(164, Short.MAX_VALUE))
     );
 
@@ -131,10 +159,10 @@ public class BuatKelompokTA extends javax.swing.JFrame {
   }
 
   // Variables declaration - do not modify//GEN-BEGIN:variables
-  private javax.swing.JButton jButton1;
+  private javax.swing.JButton butInput;
   private javax.swing.JLabel jLabel1;
   private javax.swing.JLabel jLabel2;
   private javax.swing.JPanel jPanel1;
-  private javax.swing.JTextField jTextField1;
+  private javax.swing.JTextField textInput;
   // End of variables declaration//GEN-END:variables
 }

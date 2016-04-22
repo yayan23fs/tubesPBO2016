@@ -5,6 +5,12 @@
  */
 package view;
 
+import java.util.ArrayList;
+import javax.swing.table.DefaultTableModel;
+import models.Dosen;
+import models.Mahasiswa;
+import models.TugasAkhir;
+
 /**
  *
  * @author YAYAN
@@ -14,10 +20,31 @@ public class SemuaMahasiswaDibimbing extends javax.swing.JFrame {
   /**
    * Creates new form SemuaMahasiswaDibimbing
    */
+  ArrayList<Mahasiswa> lm;
+  Dosen d;
   public SemuaMahasiswaDibimbing() {
     initComponents();
   }
 
+  public SemuaMahasiswaDibimbing(ArrayList<Mahasiswa> lm, Dosen d) {
+    this.lm = lm;
+    this.d = d;
+  }
+  
+  public void isiTable(){
+    DefaultTableModel dt = (DefaultTableModel) tableBimbingan.getModel();
+    while(dt.getRowCount()>0) dt.removeRow(0);
+    for(Mahasiswa m : lm){
+      TugasAkhir ta = m.getTugasAkhir();
+      if(ta!=null){
+        if(ta.getPembimbing(1).getNip().equals(d.getNip())||
+                ta.getPembimbing(2).getNip().equals(d.getNip())){
+          dt.addRow(new String[]{m.getNim(),ta.getJudul(),ta.getPembimbing(1).getNama(),
+          ta.getPembimbing(2).getNama()});
+        }
+      }
+    }
+  }
   /**
    * This method is called from within the constructor to initialize the form.
    * WARNING: Do NOT modify this code. The content of this method is always
@@ -30,24 +57,27 @@ public class SemuaMahasiswaDibimbing extends javax.swing.JFrame {
     jPanel1 = new javax.swing.JPanel();
     jLabel1 = new javax.swing.JLabel();
     jScrollPane1 = new javax.swing.JScrollPane();
-    jTable1 = new javax.swing.JTable();
-
-    setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+    tableBimbingan = new javax.swing.JTable();
 
     jLabel1.setText("Semua Mahasiswa yang dibimbing");
 
-    jTable1.setModel(new javax.swing.table.DefaultTableModel(
+    tableBimbingan.setModel(new javax.swing.table.DefaultTableModel(
       new Object [][] {
-        {null, null, null, null},
-        {null, null, null, null},
-        {null, null, null, null},
-        {null, null, null, null}
+
       },
       new String [] {
         "NIM", "Judul", "Pembimbing 1", "Pembimbing 2"
       }
-    ));
-    jScrollPane1.setViewportView(jTable1);
+    ) {
+      Class[] types = new Class [] {
+        java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
+      };
+
+      public Class getColumnClass(int columnIndex) {
+        return types [columnIndex];
+      }
+    });
+    jScrollPane1.setViewportView(tableBimbingan);
 
     javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
     jPanel1.setLayout(jPanel1Layout);
@@ -68,8 +98,8 @@ public class SemuaMahasiswaDibimbing extends javax.swing.JFrame {
         .addGap(34, 34, 34)
         .addComponent(jLabel1)
         .addGap(18, 18, 18)
-        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
-        .addContainerGap(188, Short.MAX_VALUE))
+        .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 268, Short.MAX_VALUE)
+        .addContainerGap())
     );
 
     javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -131,6 +161,6 @@ public class SemuaMahasiswaDibimbing extends javax.swing.JFrame {
   private javax.swing.JLabel jLabel1;
   private javax.swing.JPanel jPanel1;
   private javax.swing.JScrollPane jScrollPane1;
-  private javax.swing.JTable jTable1;
+  private javax.swing.JTable tableBimbingan;
   // End of variables declaration//GEN-END:variables
 }

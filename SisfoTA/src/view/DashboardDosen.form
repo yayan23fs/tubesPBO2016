@@ -55,12 +55,12 @@
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace min="-2" pref="95" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                              <Component id="jButton1" alignment="0" max="32767" attributes="0"/>
-                              <Component id="jButton2" max="32767" attributes="0"/>
-                              <Component id="jButton3" max="32767" attributes="0"/>
-                              <Component id="jButton4" alignment="0" max="32767" attributes="0"/>
-                              <Component id="jButton5" max="32767" attributes="0"/>
-                              <Component id="jToggleButton1" max="32767" attributes="0"/>
+                              <Component id="butBuatKelompokTA" alignment="0" max="32767" attributes="0"/>
+                              <Component id="butTambahAnggotaKelompokTA" max="32767" attributes="0"/>
+                              <Component id="butHapusAnggotaKelompokTA" max="32767" attributes="0"/>
+                              <Component id="butLihatSemuaKelompokTA" alignment="0" max="32767" attributes="0"/>
+                              <Component id="butUbahStatusPembimbingTA" max="32767" attributes="0"/>
+                              <Component id="butLihatMahasiswaDibimbing" max="32767" attributes="0"/>
                           </Group>
                       </Group>
                   </Group>
@@ -74,17 +74,17 @@
                   <EmptySpace max="-2" attributes="0"/>
                   <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
-                  <Component id="jButton1" min="-2" max="-2" attributes="0"/>
+                  <Component id="butBuatKelompokTA" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
-                  <Component id="jButton2" min="-2" max="-2" attributes="0"/>
+                  <Component id="butTambahAnggotaKelompokTA" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
-                  <Component id="jButton3" min="-2" max="-2" attributes="0"/>
+                  <Component id="butHapusAnggotaKelompokTA" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
-                  <Component id="jButton4" min="-2" max="-2" attributes="0"/>
+                  <Component id="butLihatSemuaKelompokTA" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
-                  <Component id="jButton5" min="-2" max="-2" attributes="0"/>
+                  <Component id="butUbahStatusPembimbingTA" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
-                  <Component id="jToggleButton1" min="-2" max="-2" attributes="0"/>
+                  <Component id="butLihatMahasiswaDibimbing" min="-2" max="-2" attributes="0"/>
                   <EmptySpace pref="67" max="32767" attributes="0"/>
               </Group>
           </Group>
@@ -96,32 +96,32 @@
             <Property name="text" type="java.lang.String" value="Dashboard Dosen"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JButton" name="jButton1">
+        <Component class="javax.swing.JButton" name="butBuatKelompokTA">
           <Properties>
             <Property name="text" type="java.lang.String" value="Buat Kelompok TA"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JButton" name="jButton2">
+        <Component class="javax.swing.JButton" name="butTambahAnggotaKelompokTA">
           <Properties>
             <Property name="text" type="java.lang.String" value="Tambah Anggota Kelompok TA"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JButton" name="jButton3">
+        <Component class="javax.swing.JButton" name="butHapusAnggotaKelompokTA">
           <Properties>
             <Property name="text" type="java.lang.String" value="Hapus Anggota Kelompk TA"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JButton" name="jButton4">
+        <Component class="javax.swing.JButton" name="butLihatSemuaKelompokTA">
           <Properties>
             <Property name="text" type="java.lang.String" value="Lihat Semua Kelompok TA"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JButton" name="jButton5">
+        <Component class="javax.swing.JButton" name="butUbahStatusPembimbingTA">
           <Properties>
             <Property name="text" type="java.lang.String" value="Ubah Status Pembimbing TA"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JToggleButton" name="jToggleButton1">
+        <Component class="javax.swing.JToggleButton" name="butLihatMahasiswaDibimbing">
           <Properties>
             <Property name="text" type="java.lang.String" value="Lihat Mahasiswa Dimbimbing"/>
           </Properties>

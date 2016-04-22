@@ -5,6 +5,12 @@
  */
 package view;
 
+import java.util.ArrayList;
+import javax.swing.JButton;
+import models.Dosen;
+import models.HubungDB;
+import models.Mahasiswa;
+
 /**
  *
  * @author YAYAN
@@ -14,10 +20,51 @@ public class HapusAnggotaKelompokTA extends javax.swing.JFrame {
   /**
    * Creates new form HapusAnggotaKelompokTA
    */
+  Dosen d;
+  HubungDB hdb;
+  ArrayList<Mahasiswa> listMahasiswa;
   public HapusAnggotaKelompokTA() {
     initComponents();
   }
 
+  public HapusAnggotaKelompokTA(Dosen d, HubungDB hdb, ArrayList<Mahasiswa> listMahasiswa) {
+    this.d = d;
+    this.hdb = hdb;
+    this.listMahasiswa = listMahasiswa;
+  }
+
+  public Dosen getD() {
+    return d;
+  }
+
+  public HubungDB getHdb() {
+    return hdb;
+  }
+
+  public JButton getButCek() {
+    return butCek;
+  }
+
+  public JButton getButCek2() {
+    return butCek2;
+  }
+
+  public JButton getButHapusKeanggotaan() {
+    return butHapusKeanggotaan;
+  }
+
+  public String getTopik(){
+    return textTopik.getText();
+  }
+  public String getNIM(){
+    return textNIM.getText();
+  }
+
+  public ArrayList<Mahasiswa> getListMahasiswa() {
+    return listMahasiswa;
+  }
+  
+  
   /**
    * This method is called from within the constructor to initialize the form.
    * WARNING: Do NOT modify this code. The content of this method is always
@@ -30,29 +77,27 @@ public class HapusAnggotaKelompokTA extends javax.swing.JFrame {
     jPanel1 = new javax.swing.JPanel();
     jLabel1 = new javax.swing.JLabel();
     jLabel2 = new javax.swing.JLabel();
-    jTextField1 = new javax.swing.JTextField();
-    jButton1 = new javax.swing.JButton();
+    textTopik = new javax.swing.JTextField();
+    butCek = new javax.swing.JButton();
     jLabel3 = new javax.swing.JLabel();
-    jTextField2 = new javax.swing.JTextField();
-    jButton2 = new javax.swing.JButton();
-    jButton3 = new javax.swing.JButton();
+    textNIM = new javax.swing.JTextField();
+    butCek2 = new javax.swing.JButton();
+    butHapusKeanggotaan = new javax.swing.JButton();
     jLabel4 = new javax.swing.JLabel();
     jLabel5 = new javax.swing.JLabel();
     jLabel6 = new javax.swing.JLabel();
-
-    setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
     jLabel1.setText("Hapus Anggota Kelompok TA");
 
     jLabel2.setText("Topik");
 
-    jButton1.setText("Cek");
+    butCek.setText("Cek");
 
     jLabel3.setText("NIM");
 
-    jButton2.setText("Cek");
+    butCek2.setText("Cek");
 
-    jButton3.setText("Hapus Keanggotaan");
+    butHapusKeanggotaan.setText("Hapus Keanggotaan");
 
     jLabel4.setText("Mahasiswa Sukses Terhapus");
 
@@ -79,12 +124,12 @@ public class HapusAnggotaKelompokTA extends javax.swing.JFrame {
                     .addComponent(jLabel3)
                     .addGap(24, 24, 24)))
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                  .addComponent(jTextField1)
-                  .addComponent(jTextField2, javax.swing.GroupLayout.DEFAULT_SIZE, 163, Short.MAX_VALUE))))
+                  .addComponent(textTopik)
+                  .addComponent(textNIM, javax.swing.GroupLayout.DEFAULT_SIZE, 163, Short.MAX_VALUE))))
             .addGap(18, 18, 18)
             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-              .addComponent(jButton1)
-              .addComponent(jButton2)))
+              .addComponent(butCek)
+              .addComponent(butCek2)))
           .addGroup(jPanel1Layout.createSequentialGroup()
             .addGap(108, 108, 108)
             .addComponent(jLabel5))
@@ -93,7 +138,7 @@ public class HapusAnggotaKelompokTA extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
               .addComponent(jLabel6)
               .addComponent(jLabel4)
-              .addComponent(jButton3))))
+              .addComponent(butHapusKeanggotaan))))
         .addContainerGap(65, Short.MAX_VALUE))
     );
     jPanel1Layout.setVerticalGroup(
@@ -104,19 +149,19 @@ public class HapusAnggotaKelompokTA extends javax.swing.JFrame {
         .addGap(45, 45, 45)
         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
           .addComponent(jLabel2)
-          .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-          .addComponent(jButton1))
+          .addComponent(textTopik, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+          .addComponent(butCek))
         .addGap(12, 12, 12)
         .addComponent(jLabel5)
         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
           .addComponent(jLabel3)
-          .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-          .addComponent(jButton2))
+          .addComponent(textNIM, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+          .addComponent(butCek2))
         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
         .addComponent(jLabel6)
         .addGap(18, 18, 18)
-        .addComponent(jButton3)
+        .addComponent(butHapusKeanggotaan)
         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
         .addComponent(jLabel4)
         .addContainerGap(44, Short.MAX_VALUE))
@@ -178,9 +223,9 @@ public class HapusAnggotaKelompokTA extends javax.swing.JFrame {
   }
 
   // Variables declaration - do not modify//GEN-BEGIN:variables
-  private javax.swing.JButton jButton1;
-  private javax.swing.JButton jButton2;
-  private javax.swing.JButton jButton3;
+  private javax.swing.JButton butCek;
+  private javax.swing.JButton butCek2;
+  private javax.swing.JButton butHapusKeanggotaan;
   private javax.swing.JLabel jLabel1;
   private javax.swing.JLabel jLabel2;
   private javax.swing.JLabel jLabel3;
@@ -188,7 +233,7 @@ public class HapusAnggotaKelompokTA extends javax.swing.JFrame {
   private javax.swing.JLabel jLabel5;
   private javax.swing.JLabel jLabel6;
   private javax.swing.JPanel jPanel1;
-  private javax.swing.JTextField jTextField1;
-  private javax.swing.JTextField jTextField2;
+  private javax.swing.JTextField textNIM;
+  private javax.swing.JTextField textTopik;
   // End of variables declaration//GEN-END:variables
 }

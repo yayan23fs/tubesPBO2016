@@ -5,6 +5,10 @@
  */
 package view;
 
+import javax.swing.JButton;
+import models.HubungDB;
+import models.Mahasiswa;
+
 /**
  *
  * @author YAYAN
@@ -14,10 +18,35 @@ public class DashboardMahasiswa extends javax.swing.JFrame {
   /**
    * Creates new form DashboardMahasiswa
    */
+  private Mahasiswa m ;
+  private HubungDB hdb;
   public DashboardMahasiswa() {
     initComponents();
   }
 
+  public DashboardMahasiswa(Mahasiswa m, HubungDB hdb) {
+    this.m = m;
+    this.hdb = hdb;
+  }
+
+  public Mahasiswa getM() {
+    return m;
+  }
+
+  public HubungDB getHdb() {
+    return hdb;
+  }
+
+  public JButton getButBuatTA() {
+    return butBuatTA;
+  }
+
+  public JButton getButRevisiJudulTA() {
+    return butRevisiJudulTA;
+  }
+
+  
+  
   /**
    * This method is called from within the constructor to initialize the form.
    * WARNING: Do NOT modify this code. The content of this method is always
@@ -29,16 +58,16 @@ public class DashboardMahasiswa extends javax.swing.JFrame {
 
     jPanel1 = new javax.swing.JPanel();
     jLabel1 = new javax.swing.JLabel();
-    jButton1 = new javax.swing.JButton();
-    jButton2 = new javax.swing.JButton();
+    butBuatTA = new javax.swing.JButton();
+    butRevisiJudulTA = new javax.swing.JButton();
 
     setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
     jLabel1.setText("Dashboard Mahasiswa");
 
-    jButton1.setText("Buat TA");
+    butBuatTA.setText("Buat TA");
 
-    jButton2.setText("Revisi Judul TA");
+    butRevisiJudulTA.setText("Revisi Judul TA");
 
     javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
     jPanel1.setLayout(jPanel1Layout);
@@ -48,8 +77,8 @@ public class DashboardMahasiswa extends javax.swing.JFrame {
         .addGap(129, 129, 129)
         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
           .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-          .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-          .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+          .addComponent(butBuatTA, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+          .addComponent(butRevisiJudulTA, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         .addContainerGap(144, Short.MAX_VALUE))
     );
     jPanel1Layout.setVerticalGroup(
@@ -58,9 +87,9 @@ public class DashboardMahasiswa extends javax.swing.JFrame {
         .addContainerGap()
         .addComponent(jLabel1)
         .addGap(82, 82, 82)
-        .addComponent(jButton1)
+        .addComponent(butBuatTA)
         .addGap(18, 18, 18)
-        .addComponent(jButton2)
+        .addComponent(butRevisiJudulTA)
         .addContainerGap(107, Short.MAX_VALUE))
     );
 
@@ -120,8 +149,8 @@ public class DashboardMahasiswa extends javax.swing.JFrame {
   }
 
   // Variables declaration - do not modify//GEN-BEGIN:variables
-  private javax.swing.JButton jButton1;
-  private javax.swing.JButton jButton2;
+  private javax.swing.JButton butBuatTA;
+  private javax.swing.JButton butRevisiJudulTA;
   private javax.swing.JLabel jLabel1;
   private javax.swing.JPanel jPanel1;
   // End of variables declaration//GEN-END:variables

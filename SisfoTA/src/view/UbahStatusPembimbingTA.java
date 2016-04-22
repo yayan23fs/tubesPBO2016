@@ -5,6 +5,12 @@
  */
 package view;
 
+import java.util.ArrayList;
+import javax.swing.JButton;
+import models.Dosen;
+import models.HubungDB;
+import models.Mahasiswa;
+
 /**
  *
  * @author YAYAN
@@ -14,10 +20,46 @@ public class UbahStatusPembimbingTA extends javax.swing.JFrame {
   /**
    * Creates new form UbahStatusPembimbingTA
    */
+  Dosen d;
+  HubungDB hdb;
+  ArrayList<Mahasiswa> listMahasiswa;
   public UbahStatusPembimbingTA() {
     initComponents();
   }
 
+  public UbahStatusPembimbingTA(Dosen d, HubungDB hdb,ArrayList<Mahasiswa> lm) {
+    this.d = d;
+    this.hdb = hdb;
+    this.listMahasiswa= lm;
+  }
+
+  public Dosen getD() {
+    return d;
+  }
+
+  public HubungDB getHdb() {
+    return hdb;
+  }
+
+  public ArrayList<Mahasiswa> getListMahasiswa() {
+    return listMahasiswa;
+  }
+
+  public JButton getButCek() {
+    return butCek;
+  }
+
+  public JButton getButConfirm() {
+    return butConfirm;
+  }
+
+  public String getNIM(){
+    return textNim.getText();
+  }
+  public int getStatusPembimbing(){
+    return listPembimbing.getSelectedIndex();
+  }
+          
   /**
    * This method is called from within the constructor to initialize the form.
    * WARNING: Do NOT modify this code. The content of this method is always
@@ -30,15 +72,12 @@ public class UbahStatusPembimbingTA extends javax.swing.JFrame {
     jPanel1 = new javax.swing.JPanel();
     jLabel1 = new javax.swing.JLabel();
     jLabel2 = new javax.swing.JLabel();
-    jTextField1 = new javax.swing.JTextField();
-    jButton1 = new javax.swing.JButton();
+    textNim = new javax.swing.JTextField();
+    butCek = new javax.swing.JButton();
     jLabel3 = new javax.swing.JLabel();
     jScrollPane1 = new javax.swing.JScrollPane();
-    jList1 = new javax.swing.JList<>();
-    jButton2 = new javax.swing.JButton();
-    jLabel4 = new javax.swing.JLabel();
-    jLabel5 = new javax.swing.JLabel();
-    jLabel6 = new javax.swing.JLabel();
+    listPembimbing = new javax.swing.JList<>();
+    butConfirm = new javax.swing.JButton();
 
     setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -46,24 +85,18 @@ public class UbahStatusPembimbingTA extends javax.swing.JFrame {
 
     jLabel2.setText("NIM");
 
-    jButton1.setText("Cek");
+    butCek.setText("Cek");
 
     jLabel3.setText("Pilihan");
 
-    jList1.setModel(new javax.swing.AbstractListModel<String>() {
-      String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
+    listPembimbing.setModel(new javax.swing.AbstractListModel<String>() {
+      String[] strings = { "Bukan Pembimbing", "Pembimbing 1", "Pembmbing 2" };
       public int getSize() { return strings.length; }
       public String getElementAt(int i) { return strings[i]; }
     });
-    jScrollPane1.setViewportView(jList1);
+    jScrollPane1.setViewportView(listPembimbing);
 
-    jButton2.setText("Confirm");
-
-    jLabel4.setText("Sukses ubah status pembimbing");
-
-    jLabel5.setText("Mahasiswa Tidak Terdaftar");
-
-    jLabel6.setText("Mahasiswa Tidak Memiliki TA");
+    butConfirm.setText("Confirm");
 
     javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
     jPanel1.setLayout(jPanel1Layout);
@@ -82,23 +115,14 @@ public class UbahStatusPembimbingTA extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(33, 33, 33)
-                .addComponent(jButton2))
+                .addComponent(butConfirm))
               .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                  .addComponent(jLabel4)
-                  .addGroup(jPanel1Layout.createSequentialGroup()
-                    .addComponent(jLabel2)
-                    .addGap(26, 26, 26)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 183, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addComponent(jLabel2)
                 .addGap(26, 26, 26)
-                .addComponent(jButton1)))))
+                .addComponent(textNim, javax.swing.GroupLayout.PREFERRED_SIZE, 183, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(26, 26, 26)
+                .addComponent(butCek)))))
         .addContainerGap(31, Short.MAX_VALUE))
-      .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-        .addGap(0, 0, Short.MAX_VALUE)
-        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-          .addComponent(jLabel6)
-          .addComponent(jLabel5))
-        .addGap(123, 123, 123))
     );
     jPanel1Layout.setVerticalGroup(
       jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -108,24 +132,18 @@ public class UbahStatusPembimbingTA extends javax.swing.JFrame {
         .addGap(18, 18, 18)
         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
           .addComponent(jLabel2)
-          .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-          .addComponent(jButton1))
-        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+          .addComponent(textNim, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+          .addComponent(butCek))
+        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
           .addGroup(jPanel1Layout.createSequentialGroup()
             .addGap(44, 44, 44)
             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
               .addComponent(jLabel3)
-              .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)))
+              .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)))
           .addGroup(jPanel1Layout.createSequentialGroup()
-            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-            .addComponent(jLabel5)
-            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-            .addComponent(jLabel6)
-            .addGap(35, 35, 35)
-            .addComponent(jButton2)))
-        .addGap(28, 28, 28)
-        .addComponent(jLabel4)
-        .addContainerGap(36, Short.MAX_VALUE))
+            .addGap(75, 75, 75)
+            .addComponent(butConfirm)))
+        .addContainerGap(114, Short.MAX_VALUE))
     );
 
     javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -184,17 +202,14 @@ public class UbahStatusPembimbingTA extends javax.swing.JFrame {
   }
 
   // Variables declaration - do not modify//GEN-BEGIN:variables
-  private javax.swing.JButton jButton1;
-  private javax.swing.JButton jButton2;
+  private javax.swing.JButton butCek;
+  private javax.swing.JButton butConfirm;
   private javax.swing.JLabel jLabel1;
   private javax.swing.JLabel jLabel2;
   private javax.swing.JLabel jLabel3;
-  private javax.swing.JLabel jLabel4;
-  private javax.swing.JLabel jLabel5;
-  private javax.swing.JLabel jLabel6;
-  private javax.swing.JList<String> jList1;
   private javax.swing.JPanel jPanel1;
   private javax.swing.JScrollPane jScrollPane1;
-  private javax.swing.JTextField jTextField1;
+  private javax.swing.JList<String> listPembimbing;
+  private javax.swing.JTextField textNim;
   // End of variables declaration//GEN-END:variables
 }

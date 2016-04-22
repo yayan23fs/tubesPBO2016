@@ -5,6 +5,13 @@
  */
 package view;
 
+import java.util.ArrayList;
+import javax.swing.JButton;
+import javax.swing.JToggleButton;
+import models.Dosen;
+import models.HubungDB;
+import models.Mahasiswa;
+
 /**
  *
  * @author YAYAN
@@ -14,9 +21,59 @@ public class DashboardDosen extends javax.swing.JFrame {
   /**
    * Creates new form DashboardDosen
    */
+  private Dosen d;
+  private HubungDB hdb;
+  private ArrayList<Mahasiswa> listMahasiswa;
   public DashboardDosen() {
     initComponents();
   }
+
+  public DashboardDosen(Dosen d, HubungDB hdb, ArrayList<Mahasiswa> l) {
+    this.d = d;
+    this.hdb = hdb;
+    this.listMahasiswa= l;
+  }
+  
+
+  public Dosen getD() {
+    return d;
+  }
+
+  public HubungDB getHdb() {
+    return hdb;
+  }
+
+  public JButton getButBuatKelompokTA() {
+    return butBuatKelompokTA;
+  }
+
+  public JButton getButHapusAnggotaKelompokTA() {
+    return butHapusAnggotaKelompokTA;
+  }
+
+  public JToggleButton getButLihatMahasiswaDibimbing() {
+    return butLihatMahasiswaDibimbing;
+  }
+
+  public JButton getButLihatSemuaKelompokTA() {
+    return butLihatSemuaKelompokTA;
+  }
+
+  public JButton getButTambahAnggotaKelompokTA() {
+    return butTambahAnggotaKelompokTA;
+  }
+
+  public JButton getButUbahStatusPembimbingTA() {
+    return butUbahStatusPembimbingTA;
+  }
+
+  public ArrayList<Mahasiswa> getListMahasiswa() {
+    return listMahasiswa;
+  }
+  
+  
+  
+  
 
   /**
    * This method is called from within the constructor to initialize the form.
@@ -29,28 +86,28 @@ public class DashboardDosen extends javax.swing.JFrame {
 
     jPanel1 = new javax.swing.JPanel();
     jLabel1 = new javax.swing.JLabel();
-    jButton1 = new javax.swing.JButton();
-    jButton2 = new javax.swing.JButton();
-    jButton3 = new javax.swing.JButton();
-    jButton4 = new javax.swing.JButton();
-    jButton5 = new javax.swing.JButton();
-    jToggleButton1 = new javax.swing.JToggleButton();
+    butBuatKelompokTA = new javax.swing.JButton();
+    butTambahAnggotaKelompokTA = new javax.swing.JButton();
+    butHapusAnggotaKelompokTA = new javax.swing.JButton();
+    butLihatSemuaKelompokTA = new javax.swing.JButton();
+    butUbahStatusPembimbingTA = new javax.swing.JButton();
+    butLihatMahasiswaDibimbing = new javax.swing.JToggleButton();
 
     setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
     jLabel1.setText("Dashboard Dosen");
 
-    jButton1.setText("Buat Kelompok TA");
+    butBuatKelompokTA.setText("Buat Kelompok TA");
 
-    jButton2.setText("Tambah Anggota Kelompok TA");
+    butTambahAnggotaKelompokTA.setText("Tambah Anggota Kelompok TA");
 
-    jButton3.setText("Hapus Anggota Kelompk TA");
+    butHapusAnggotaKelompokTA.setText("Hapus Anggota Kelompk TA");
 
-    jButton4.setText("Lihat Semua Kelompok TA");
+    butLihatSemuaKelompokTA.setText("Lihat Semua Kelompok TA");
 
-    jButton5.setText("Ubah Status Pembimbing TA");
+    butUbahStatusPembimbingTA.setText("Ubah Status Pembimbing TA");
 
-    jToggleButton1.setText("Lihat Mahasiswa Dimbimbing");
+    butLihatMahasiswaDibimbing.setText("Lihat Mahasiswa Dimbimbing");
 
     javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
     jPanel1.setLayout(jPanel1Layout);
@@ -64,12 +121,12 @@ public class DashboardDosen extends javax.swing.JFrame {
           .addGroup(jPanel1Layout.createSequentialGroup()
             .addGap(95, 95, 95)
             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-              .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-              .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-              .addComponent(jButton3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-              .addComponent(jButton4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-              .addComponent(jButton5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-              .addComponent(jToggleButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+              .addComponent(butBuatKelompokTA, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+              .addComponent(butTambahAnggotaKelompokTA, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+              .addComponent(butHapusAnggotaKelompokTA, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+              .addComponent(butLihatSemuaKelompokTA, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+              .addComponent(butUbahStatusPembimbingTA, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+              .addComponent(butLihatMahasiswaDibimbing, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         .addContainerGap(106, Short.MAX_VALUE))
     );
     jPanel1Layout.setVerticalGroup(
@@ -78,17 +135,17 @@ public class DashboardDosen extends javax.swing.JFrame {
         .addContainerGap()
         .addComponent(jLabel1)
         .addGap(18, 18, 18)
-        .addComponent(jButton1)
+        .addComponent(butBuatKelompokTA)
         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-        .addComponent(jButton2)
+        .addComponent(butTambahAnggotaKelompokTA)
         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-        .addComponent(jButton3)
+        .addComponent(butHapusAnggotaKelompokTA)
         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-        .addComponent(jButton4)
+        .addComponent(butLihatSemuaKelompokTA)
         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-        .addComponent(jButton5)
+        .addComponent(butUbahStatusPembimbingTA)
         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-        .addComponent(jToggleButton1)
+        .addComponent(butLihatMahasiswaDibimbing)
         .addContainerGap(67, Short.MAX_VALUE))
     );
 
@@ -148,13 +205,13 @@ public class DashboardDosen extends javax.swing.JFrame {
   }
 
   // Variables declaration - do not modify//GEN-BEGIN:variables
-  private javax.swing.JButton jButton1;
-  private javax.swing.JButton jButton2;
-  private javax.swing.JButton jButton3;
-  private javax.swing.JButton jButton4;
-  private javax.swing.JButton jButton5;
+  private javax.swing.JButton butBuatKelompokTA;
+  private javax.swing.JButton butHapusAnggotaKelompokTA;
+  private javax.swing.JToggleButton butLihatMahasiswaDibimbing;
+  private javax.swing.JButton butLihatSemuaKelompokTA;
+  private javax.swing.JButton butTambahAnggotaKelompokTA;
+  private javax.swing.JButton butUbahStatusPembimbingTA;
   private javax.swing.JLabel jLabel1;
   private javax.swing.JPanel jPanel1;
-  private javax.swing.JToggleButton jToggleButton1;
   // End of variables declaration//GEN-END:variables
 }
