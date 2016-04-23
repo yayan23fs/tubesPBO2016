@@ -5,6 +5,7 @@
  */
 package view;
 
+import controllers.TambahAnggotaKelompokTAController;
 import java.util.ArrayList;
 import javax.swing.JButton;
 import models.Dosen;
@@ -32,6 +33,9 @@ public class TambahAnggotaKelompokTA extends javax.swing.JFrame {
     this.d = d;
     this.hdb = hdb;
     this.lm = l;
+    TambahAnggotaKelompokTAController t = new TambahAnggotaKelompokTAController(this);
+    butCek.addActionListener(t);
+    butInput.addActionListener(t);
   }
 
   public Dosen getD() {

@@ -5,6 +5,7 @@
  */
 package view;
 
+import controllers.LoginController;
 import javax.swing.JButton;
 import models.HubungDB;
 import models.User;
@@ -27,6 +28,7 @@ public class Login extends javax.swing.JFrame {
   public Login(HubungDB hdb){
     initComponents();
     this.hdb = hdb;
+    butLogin.addActionListener(new LoginController(this));
   }
   public JButton getButLogin() {
     return butLogin;

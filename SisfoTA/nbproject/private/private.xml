@@ -3,11 +3,35 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/E:/PrK/PBO%202016/Tugas%20besar/tubesPBO2016/SisfoTA/src/view/BuatTA.java</file>
-            <file>file:/E:/PrK/PBO%202016/Tugas%20besar/tubesPBO2016/SisfoTA/src/view/RevisiJudulTA.java</file>
-            <file>file:/E:/PrK/PBO%202016/Tugas%20besar/tubesPBO2016/SisfoTA/src/view/Login.java</file>
-            <file>file:/E:/PrK/PBO%202016/Tugas%20besar/tubesPBO2016/SisfoTA/src/Driver.java</file>
-            <file>file:/E:/PrK/PBO%202016/Tugas%20besar/tubesPBO2016/SisfoTA/src/tubes/AplikasiKonsol.java</file>
+            <file>file:/E:/Laptop/Materi%20kuliah%20IT%20Telkom/Kak%20Fauzan/SisfoTA/src/view/HapusAnggotaKelompokTA.java</file>
+            <file>file:/E:/Laptop/Materi%20kuliah%20IT%20Telkom/Kak%20Fauzan/SisfoTA/src/controllers/BuatKelompokTAController.java</file>
+            <file>file:/E:/Laptop/Materi%20kuliah%20IT%20Telkom/Kak%20Fauzan/SisfoTA/src/controllers/UbahStatusPembimbingTAController.java</file>
+            <file>file:/E:/Laptop/Materi%20kuliah%20IT%20Telkom/Kak%20Fauzan/SisfoTA/src/controllers/DashboardMahasiswaController.java</file>
+            <file>file:/E:/Laptop/Materi%20kuliah%20IT%20Telkom/Kak%20Fauzan/SisfoTA/src/view/BuatKelompokTA.java</file>
+            <file>file:/E:/Laptop/Materi%20kuliah%20IT%20Telkom/Kak%20Fauzan/SisfoTA/src/view/RevisiJudulTA.java</file>
+            <file>file:/E:/Laptop/Materi%20kuliah%20IT%20Telkom/Kak%20Fauzan/SisfoTA/src/controllers/BuatTAController.java</file>
+            <file>file:/E:/Laptop/Materi%20kuliah%20IT%20Telkom/Kak%20Fauzan/SisfoTA/src/controllers/DashboardDosenController.java</file>
+            <file>file:/E:/Laptop/Materi%20kuliah%20IT%20Telkom/Kak%20Fauzan/SisfoTA/src/tubes/View.java</file>
+            <file>file:/E:/Laptop/Materi%20kuliah%20IT%20Telkom/Kak%20Fauzan/SisfoTA/src/view/DashboardMahasiswa.java</file>
+            <file>file:/E:/Laptop/Materi%20kuliah%20IT%20Telkom/Kak%20Fauzan/SisfoTA/src/view/BuatTA.java</file>
+            <file>file:/E:/Laptop/Materi%20kuliah%20IT%20Telkom/Kak%20Fauzan/SisfoTA/src/view/SemuaMahasiswaDibimbing.java</file>
+            <file>file:/E:/Laptop/Materi%20kuliah%20IT%20Telkom/Kak%20Fauzan/SisfoTA/src/tubes/Controller.java</file>
+            <file>file:/E:/Laptop/Materi%20kuliah%20IT%20Telkom/Kak%20Fauzan/SisfoTA/src/tubes/AplikasiKonsol.java</file>
+            <file>file:/E:/Laptop/Materi%20kuliah%20IT%20Telkom/Kak%20Fauzan/SisfoTA/src/controllers/LoginController.java</file>
+            <file>file:/E:/Laptop/Materi%20kuliah%20IT%20Telkom/Kak%20Fauzan/SisfoTA/src/models/HubungDB.java</file>
+            <file>file:/E:/Laptop/Materi%20kuliah%20IT%20Telkom/Kak%20Fauzan/SisfoTA/src/view/TambahAnggotaKelompokTA.java</file>
+            <file>file:/E:/Laptop/Materi%20kuliah%20IT%20Telkom/Kak%20Fauzan/SisfoTA/src/models/Mahasiswa.java</file>
+            <file>file:/E:/Laptop/Materi%20kuliah%20IT%20Telkom/Kak%20Fauzan/SisfoTA/src/Driver.java</file>
+            <file>file:/E:/Laptop/Materi%20kuliah%20IT%20Telkom/Kak%20Fauzan/SisfoTA/src/view/DashboardDosen.java</file>
+            <file>file:/E:/Laptop/Materi%20kuliah%20IT%20Telkom/Kak%20Fauzan/SisfoTA/src/models/Orang.java</file>
+            <file>file:/E:/Laptop/Materi%20kuliah%20IT%20Telkom/Kak%20Fauzan/SisfoTA/src/controllers/HapusAnggotaKelompokTAController.java</file>
+            <file>file:/E:/Laptop/Materi%20kuliah%20IT%20Telkom/Kak%20Fauzan/SisfoTA/src/models/KelompokTA.java</file>
+            <file>file:/E:/Laptop/Materi%20kuliah%20IT%20Telkom/Kak%20Fauzan/SisfoTA/src/view/Login.java</file>
+            <file>file:/E:/Laptop/Materi%20kuliah%20IT%20Telkom/Kak%20Fauzan/SisfoTA/src/view/UbahStatusPembimbingTA.java</file>
+            <file>file:/E:/Laptop/Materi%20kuliah%20IT%20Telkom/Kak%20Fauzan/SisfoTA/src/view/LihatSemuaKelompokTA.java</file>
+            <file>file:/E:/Laptop/Materi%20kuliah%20IT%20Telkom/Kak%20Fauzan/SisfoTA/src/controllers/RevisiJudulController.java</file>
+            <file>file:/E:/Laptop/Materi%20kuliah%20IT%20Telkom/Kak%20Fauzan/SisfoTA/src/models/Dosen.java</file>
+            <file>file:/E:/Laptop/Materi%20kuliah%20IT%20Telkom/Kak%20Fauzan/SisfoTA/src/controllers/TambahAnggotaKelompokTAController.java</file>
         </group>
     </open-files>
 </project-private>

@@ -5,6 +5,7 @@
  */
 package view;
 
+import controllers.BuatTAController;
 import javax.swing.JButton;
 import models.HubungDB;
 import models.Mahasiswa;
@@ -29,6 +30,7 @@ public class BuatTA extends javax.swing.JFrame {
     initComponents();
     this.m = m;
     this.hdb = hdb;
+    butSubmit.addActionListener(new BuatTAController(this));
   }
 
   public Mahasiswa getM() {

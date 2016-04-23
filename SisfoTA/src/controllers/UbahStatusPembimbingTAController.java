@@ -72,6 +72,11 @@ public class UbahStatusPembimbingTAController implements ActionListener{
       }
       JOptionPane.showMessageDialog(b, "Sukses");
     }
+    if (s.equals(b.getButCek())){
+      Mahasiswa m = getMahasiswa(b.getListMahasiswa(), b.getNIM());
+      if(m==null) JOptionPane.showMessageDialog(b, "Mahasiswa tidak ada");
+      else JOptionPane.showMessageDialog(b, "Mahasiswa ada");
+    }
   }
   private Mahasiswa getMahasiswa(ArrayList<Mahasiswa> l, String nim){
     for(Mahasiswa m: l){

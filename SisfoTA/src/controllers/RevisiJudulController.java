@@ -24,7 +24,7 @@ public class RevisiJudulController implements ActionListener{
 
   @Override
   public void actionPerformed(ActionEvent e) {
-    if(e.getSource().equals(b.getUbah())){
+    if(e.getSource().equals(b.getUbah())){System.out.println("here");
       String judul = b.getJudul();
       Mahasiswa m = b.getM();
       if(m.getTugasAkhir()==null) {

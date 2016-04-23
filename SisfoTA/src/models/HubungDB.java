@@ -55,7 +55,7 @@ public class HubungDB {
     executeQuery(query);
   }
   public Mahasiswa getMahasiswa(String nim){
-    String query = "select * from mahasiswa where nim="+nim;
+    String query = "select * from mahasiswa where nim='"+nim+"'";
     ResultSet rs = getData(query);
     try {
       if(rs.isBeforeFirst()){

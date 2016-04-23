@@ -5,6 +5,7 @@
  */
 package view;
 
+import controllers.DashboardDosenController;
 import java.util.ArrayList;
 import javax.swing.JButton;
 import javax.swing.JToggleButton;
@@ -33,6 +34,13 @@ public class DashboardDosen extends javax.swing.JFrame {
     this.d = d;
     this.hdb = hdb;
     this.listMahasiswa= l;
+    DashboardDosenController dd = new DashboardDosenController(this);
+    butBuatKelompokTA.addActionListener(dd);
+    butHapusAnggotaKelompokTA.addActionListener(dd);
+    butLihatMahasiswaDibimbing.addActionListener(dd);
+    butLihatSemuaKelompokTA.addActionListener(dd);
+    butTambahAnggotaKelompokTA.addActionListener(dd);
+    butUbahStatusPembimbingTA.addActionListener(dd);
   }
   
 

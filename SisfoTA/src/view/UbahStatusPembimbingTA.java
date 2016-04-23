@@ -5,6 +5,7 @@
  */
 package view;
 
+import controllers.UbahStatusPembimbingTAController;
 import java.util.ArrayList;
 import javax.swing.JButton;
 import models.Dosen;
@@ -32,6 +33,9 @@ public class UbahStatusPembimbingTA extends javax.swing.JFrame {
     this.d = d;
     this.hdb = hdb;
     this.listMahasiswa= lm;
+    UbahStatusPembimbingTAController u = new UbahStatusPembimbingTAController(this);
+    butCek.addActionListener(u);
+    butConfirm.addActionListener(u);
   }
 
   public Dosen getD() {
@@ -79,8 +83,6 @@ public class UbahStatusPembimbingTA extends javax.swing.JFrame {
     jScrollPane1 = new javax.swing.JScrollPane();
     listPembimbing = new javax.swing.JList<>();
     butConfirm = new javax.swing.JButton();
-
-    setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
     jLabel1.setText("Ubah Status Pembimbing TA");
 

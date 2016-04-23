@@ -5,6 +5,7 @@
  */
 package view;
 
+import controllers.RevisiJudulController;
 import javax.swing.JButton;
 import models.HubungDB;
 import models.Mahasiswa;
@@ -28,6 +29,7 @@ public class RevisiJudulTA extends javax.swing.JFrame {
     initComponents();
     this.m = m;
     this.hdb = hdb;
+    Ubah.addActionListener(new RevisiJudulController(this));
   }
 
   public Mahasiswa getM() {
@@ -58,8 +60,6 @@ public class RevisiJudulTA extends javax.swing.JFrame {
     jLabel2 = new javax.swing.JLabel();
     textInput = new javax.swing.JTextField();
     Ubah = new javax.swing.JButton();
-
-    setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
     jLabel1.setText("Revisi Judul TA");
 

@@ -22,7 +22,7 @@ public class DashboardMahasiswaController implements ActionListener{
   public DashboardMahasiswaController(DashboardMahasiswa b) {
     this.b = b;
     bta = new BuatTA(b.getM(), b.getHdb());
-    rj = new RevisiJudulTA();
+    rj = new RevisiJudulTA(b.getM(),b.getHdb());
   }
 
   @Override

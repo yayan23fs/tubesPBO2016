@@ -5,6 +5,7 @@
  */
 package view;
 
+import controllers.HapusAnggotaKelompokTAController;
 import java.util.ArrayList;
 import javax.swing.JButton;
 import models.Dosen;
@@ -32,6 +33,10 @@ public class HapusAnggotaKelompokTA extends javax.swing.JFrame {
     this.d = d;
     this.hdb = hdb;
     this.listMahasiswa = listMahasiswa;
+    HapusAnggotaKelompokTAController h = new HapusAnggotaKelompokTAController(this);
+    butCek.addActionListener(h);
+    butCek2.addActionListener(h);
+    butHapusKeanggotaan.addActionListener(h);
   }
 
   public Dosen getD() {

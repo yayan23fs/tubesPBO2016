@@ -33,23 +33,35 @@ public class HapusAnggotaKelompokTAController implements ActionListener{
     Dosen d = b.getD();
     HubungDB hdb = b.getHdb();
     KelompokTA t = d.getKelompokTA(topik);
-    if(t==null) {
-      JOptionPane.showMessageDialog(b, "KelompokTA tidak ada");
-      return;
+    Object o = e.getSource();
+    if(o.equals(b.getButCek2())){
+      Mahasiswa mm = getMahasiswa(b.getListMahasiswa(), b.getNIM());
+      if(mm!=null) JOptionPane.showMessageDialog(b, "Mahasiswa ada");
+      else JOptionPane.showMessageDialog(b, "Mahasiswa tidak ada");
     }
-    String nim = b.getNIM();
-    Mahasiswa m = getMahasiswa(b.getListMahasiswa(),nim);
-    if(m==null) {
-      JOptionPane.showMessageDialog(b, "Mahasiswa tidak ada");
-      return ;
+    if(o.equals(b.getButCek())){
+      if (t==null)JOptionPane.showMessageDialog(b, "KelompokTA tidak ada");
+      else JOptionPane.showMessageDialog(b, "Kelompok TA ada");
     }
-    if(t.getAnggota(nim)==null) {
-      JOptionPane.showMessageDialog(b, "Mahasiswa tidak masuk di kelompok TA tersebut");
-      return ;
+    else {
+      if(t==null) {
+        JOptionPane.showMessageDialog(b, "KelompokTA tidak ada");
+        return;
+      }
+      String nim = b.getNIM();
+      Mahasiswa m = getMahasiswa(b.getListMahasiswa(),nim);
+      if(m==null) {
+        JOptionPane.showMessageDialog(b, "Mahasiswa tidak ada");
+        return ;
+      }
+      if(t.getAnggota(nim)==null) {
+        JOptionPane.showMessageDialog(b, "Mahasiswa tidak masuk di kelompok TA tersebut");
+        return ;
+      }
+      t.removeAnggota(nim);
+      hdb.executeQuery("update mahasiswa set topik=null where nim='"+m.getNim()+"'");
+      JOptionPane.showMessageDialog(b, "Sukses");
     }
-    t.removeAnggota(nim);
-    hdb.executeQuery("update mahasiswa set topik=null where nim='"+m.getNim()+"'");
-    JOptionPane.showMessageDialog(b, "Sukses");
   }
   private Mahasiswa getMahasiswa(ArrayList<Mahasiswa> l, String nim){
     for(Mahasiswa m: l){

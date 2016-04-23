@@ -5,6 +5,7 @@
  */
 package view;
 
+import controllers.DashboardMahasiswaController;
 import javax.swing.JButton;
 import models.HubungDB;
 import models.Mahasiswa;
@@ -28,6 +29,9 @@ public class DashboardMahasiswa extends javax.swing.JFrame {
     initComponents();
     this.m = m;
     this.hdb = hdb;
+    DashboardMahasiswaController dd = new DashboardMahasiswaController(this);
+    butBuatTA.addActionListener(dd);
+    butRevisiJudulTA.addActionListener(dd);
   }
 
   public Mahasiswa getM() {
