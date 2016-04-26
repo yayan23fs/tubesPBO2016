@@ -52,9 +52,13 @@ public class UbahStatusPembimbingTAController implements ActionListener{
           JOptionPane.showMessageDialog(b, "Tidak menjadi pembimbing");
           return;
         }
-        p = ta.getPembimbing(status-1);
+        p = ta.getPembimbing(status);
         if(p!=null) {
           JOptionPane.showMessageDialog(b, "Sudah ada pembimbing");
+          return;
+        }
+        if(!d.isStatusPembimbing() && status==1){
+          JOptionPane.showMessageDialog(b, "Anda tidak dapat menjadi pembimbing 1");
           return;
         }
         ta.setPembimbing(d, status);
@@ -66,9 +70,14 @@ public class UbahStatusPembimbingTAController implements ActionListener{
           return;
         }
         ta.removePembimbing(d.getNip());
+        String nip1, nip2;
+        if(ta.getPembimbing(1)==null) nip1 =null;
+        else nip1= ta.getPembimbing(1).getNip();
+        if(ta.getPembimbing(2)==null) nip2 = null;
+        else nip2 = ta.getPembimbing(2).getNip();
         hdb.executeQuery("update tugasakhir set pembimbing1='"+
-                ta.getPembimbing(1).getNip()+"',pembimbing2='"+
-                ta.getPembimbing(2).getNip()+"' where nim='"+nim+"'");
+                nip1+"',pembimbing2='"+nip2+"' where nim='"+nim+"'");
+
       }
       JOptionPane.showMessageDialog(b, "Sukses");
     }

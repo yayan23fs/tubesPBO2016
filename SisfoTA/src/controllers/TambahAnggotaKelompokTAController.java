@@ -53,7 +53,10 @@ public class TambahAnggotaKelompokTAController implements ActionListener{
         JOptionPane.showMessageDialog(b, "Mahasiswa sudah masuk dalam kelompok TA");
         return;
       }
-        
+      if(t.getJumMahasiswa()>=5){
+        JOptionPane.showMessageDialog(b, "Kelompok TA sudah penuh");
+        return;
+      }  
       t.addAnggota(m);
       hdb.executeQuery("update mahasiswa set topik='"+topik+"' where nim='"+m.getNim()+"'");
       JOptionPane.showMessageDialog(b, "Sukses");

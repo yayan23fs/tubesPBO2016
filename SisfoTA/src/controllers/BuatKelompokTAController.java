@@ -33,6 +33,10 @@ public class BuatKelompokTAController implements ActionListener{
         JOptionPane.showMessageDialog(b, "Kelompok sudah ada");
         return;
       }
+      if(d.getJum()>=3){
+        JOptionPane.showMessageDialog(b, "Kelompok TA sudah memenuhi jumlah maksimum");
+        return;
+      }
       d.createKelompokTA(topik);
       hdb.executeQuery
         ("insert into kelompokta values('"+topik+"','"+d.getNip()+"')");

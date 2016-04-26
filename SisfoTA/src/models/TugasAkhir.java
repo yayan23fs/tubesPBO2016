@@ -32,20 +32,23 @@ public class TugasAkhir {
   }
   public Dosen getPembimbing(String nip){
     for(int i=0; i<2;i++){
-      if(pembimbing[i].getNip().equals(nip)){
-        return pembimbing[i];
-      }
+      if(pembimbing[i]!=null)
+        if(pembimbing[i].getNip().equals(nip)){
+          return pembimbing[i];
+        }
     }
     return null;
   }
   public Dosen getPembimbing(int indeks){
     if (indeks ==1 || indeks ==2)
-      return pembimbing[indeks];
+      return pembimbing[indeks-1];
     return null;
   }
   public void removePembimbing(String nip){
-    if(pembimbing[0].getNip().equals(nip)) pembimbing[0]=null;
-    if(pembimbing[1].getNip().equals(nip)) pembimbing[1]=null;
+    if(pembimbing[0]!=null)
+      if(pembimbing[0].getNip().equals(nip)) pembimbing[0]=null;
+    if(pembimbing[1]!=null)
+      if(pembimbing[1].getNip().equals(nip)) pembimbing[1]=null;
   }
   
 }

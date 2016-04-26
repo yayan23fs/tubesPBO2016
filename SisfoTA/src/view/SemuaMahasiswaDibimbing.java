@@ -34,14 +34,22 @@ public class SemuaMahasiswaDibimbing extends javax.swing.JFrame {
   
   public void isiTable(){
     DefaultTableModel dt = (DefaultTableModel) tableBimbingan.getModel();
-    while(dt.getRowCount()>0) dt.removeRow(0);
+    while(dt.getRowCount()>0) dt.removeRow(0); System.out.println(lm.size());
     for(Mahasiswa m : lm){
-      TugasAkhir ta = m.getTugasAkhir();
+      TugasAkhir ta = m.getTugasAkhir(); System.out.println(ta);
       if(ta!=null){
-        if(ta.getPembimbing(1).getNip().equals(d.getNip())||
-                ta.getPembimbing(2).getNip().equals(d.getNip())){
-          dt.addRow(new String[]{m.getNim(),ta.getJudul(),ta.getPembimbing(1).getNama(),
-          ta.getPembimbing(2).getNama()});
+        Dosen d1 = ta.getPembimbing(1), d2 = ta.getPembimbing(2);
+        String pem1="-", pem2="-", nip1="", nip2="";
+        if(d1!=null){
+          nip1 = d1.getNip();
+          pem1 = d1.getNama();
+        }
+        if(d2!=null){
+          nip2 = d2.getNip();
+          pem2 = d2.getNama();
+        }
+        if(nip1.equals(d.getNip())|| nip2.equals(d.getNip())){
+          dt.addRow(new String[]{m.getNim(),ta.getJudul(),pem1, pem2});
         }
       }
     }

@@ -71,4 +71,7 @@ public class KelompokTA {
     }
     return null;
   }
+  public int getJumMahasiswa(){
+    return jum;
+  }
 }

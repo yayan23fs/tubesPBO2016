@@ -59,7 +59,10 @@ public class Mahasiswa extends Orang {
   
   @Override 
   public boolean equals(Object o){
-    if(o instanceof String) return nim.equals(o);
-    return super.equals(o);
+    return o.equals(nim);
+  }
+  @Override
+  public String toString(){
+    return nim;
   }
 }

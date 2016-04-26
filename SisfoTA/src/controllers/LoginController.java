@@ -7,8 +7,11 @@ package controllers;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 import javax.swing.JOptionPane;
+import models.Dosen;
 import models.HubungDB;
+import models.Mahasiswa;
 import models.User;
 import view.DashboardDosen;
 import view.DashboardMahasiswa;
@@ -34,16 +37,36 @@ public class LoginController implements ActionListener{
         JOptionPane.showMessageDialog(b, "Username atau Password Salah!");
         return;
       }
+      ArrayList<Mahasiswa> listMahasiswa = hdb.getAllMahasiswa();
+      ArrayList<Dosen> listDosen = hdb.getAllDosen();
       if(u.isIsDosen()){
-        DashboardDosen d = new DashboardDosen(hdb.getDosenOnly(u.getKode()),hdb,hdb.getAllMahasiswa());
+        Dosen dosen = getDosen(listDosen, u.getKode());
+        for(int i=0; i< listMahasiswa.size();i++){
+          hdb.getTugasAkhir(listDosen, listMahasiswa.get(i));
+        }
+        hdb.getAllKelompokTA(dosen, listMahasiswa);
+        DashboardDosen d = new DashboardDosen(dosen,hdb,listMahasiswa);
         d.setVisible(true);
       }
       else {
-        DashboardMahasiswa dm = new DashboardMahasiswa(hdb.getMahasiswa(u.getKode()),hdb);
+        Mahasiswa m =getMahasiswa(listMahasiswa, u.getKode());
+        hdb.getTugasAkhir(listDosen, m);
+        DashboardMahasiswa dm = new DashboardMahasiswa(m,hdb);
         dm.setVisible(true);
       }
       b.dispose();
     }
+  }
+  private Dosen getDosen(ArrayList<Dosen> listDosen,String nip){
+    for(Dosen d: listDosen){
+      if(d.getNip().equals(nip)) return d;
+    }
+    return null;
+  }
+  private Mahasiswa getMahasiswa(ArrayList<Mahasiswa> list, String nim){
+    for(Mahasiswa m :list)
+      if(m.getNim().equals(nim)) return m;
+    return null;
   }
   
   

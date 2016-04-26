@@ -121,9 +121,9 @@
             <Property name="text" type="java.lang.String" value="Ubah Status Pembimbing TA"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JToggleButton" name="butLihatMahasiswaDibimbing">
+        <Component class="javax.swing.JButton" name="butLihatMahasiswaDibimbing">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Lihat Mahasiswa Dimbimbing"/>
+            <Property name="text" type="java.lang.String" value="Semua Mahasiswa Dibimbing"/>
           </Properties>
         </Component>
       </SubComponents>

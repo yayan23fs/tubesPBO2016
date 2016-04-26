@@ -60,7 +60,7 @@ public class DashboardDosen extends javax.swing.JFrame {
     return butHapusAnggotaKelompokTA;
   }
 
-  public JToggleButton getButLihatMahasiswaDibimbing() {
+  public JButton getButLihatMahasiswaDibimbing() {
     return butLihatMahasiswaDibimbing;
   }
 
@@ -100,7 +100,7 @@ public class DashboardDosen extends javax.swing.JFrame {
     butHapusAnggotaKelompokTA = new javax.swing.JButton();
     butLihatSemuaKelompokTA = new javax.swing.JButton();
     butUbahStatusPembimbingTA = new javax.swing.JButton();
-    butLihatMahasiswaDibimbing = new javax.swing.JToggleButton();
+    butLihatMahasiswaDibimbing = new javax.swing.JButton();
 
     setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -116,7 +116,7 @@ public class DashboardDosen extends javax.swing.JFrame {
 
     butUbahStatusPembimbingTA.setText("Ubah Status Pembimbing TA");
 
-    butLihatMahasiswaDibimbing.setText("Lihat Mahasiswa Dimbimbing");
+    butLihatMahasiswaDibimbing.setText("Semua Mahasiswa Dibimbing");
 
     javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
     jPanel1.setLayout(jPanel1Layout);
@@ -216,7 +216,7 @@ public class DashboardDosen extends javax.swing.JFrame {
   // Variables declaration - do not modify//GEN-BEGIN:variables
   private javax.swing.JButton butBuatKelompokTA;
   private javax.swing.JButton butHapusAnggotaKelompokTA;
-  private javax.swing.JToggleButton butLihatMahasiswaDibimbing;
+  private javax.swing.JButton butLihatMahasiswaDibimbing;
   private javax.swing.JButton butLihatSemuaKelompokTA;
   private javax.swing.JButton butTambahAnggotaKelompokTA;
   private javax.swing.JButton butUbahStatusPembimbingTA;

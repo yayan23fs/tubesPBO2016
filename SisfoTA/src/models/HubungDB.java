@@ -67,6 +67,7 @@ public class HubungDB {
         boolean status = rs.getBoolean("status");
         Mahasiswa m = new Mahasiswa(nim,nama,tgl,alamat,telp,nim, status);
         query = "select * from tugasakhir where nim='"+nim+"'";
+        rs.close();
         rs = getData(query);
         if(rs.isBeforeFirst()){
           String judul = rs.getString("judul");
@@ -84,6 +85,7 @@ public class HubungDB {
             ta.setPembimbing(d2, 2);
           }
         }
+        rs.close();
         return m;
       }
     } catch (SQLException ex) {
@@ -161,7 +163,7 @@ public class HubungDB {
             if(rs.isBeforeFirst()){
               while(rs.next()){
                 String nim = rs.getString("nim");
-                k.addAnggota(rm.get(rm.indexOf(nim)));
+                k.addAnggota(getMahasiswa(rm,nim));
               }
             }
           }
@@ -186,11 +188,11 @@ public class HubungDB {
           TugasAkhir ta = m.getTugasAkhir();
           String nip = rs.getString("pembimbing1");
           if(nip!=null){
-            ta.setPembimbing(rd.get(rd.indexOf(nip)), 0);
+            ta.setPembimbing(getDosen(rd, nip), 1);
           }
           nip = rs.getString("pembimbing2");
           if(nip!=null){
-            ta.setPembimbing(rd.get(rd.indexOf(nip)), 0);
+            ta.setPembimbing(getDosen(rd, nip), 2);
           }
           rs.close();
         } catch (SQLException ex) {
@@ -317,6 +319,18 @@ public class HubungDB {
       rs.close();
     } catch (SQLException ex) {
       Logger.getLogger(HubungDB.class.getName()).log(Level.SEVERE, null, ex);
+    }
+    return null;
+  }
+  private Mahasiswa getMahasiswa(ArrayList<Mahasiswa> list, String nim){
+    for(Mahasiswa m : list){
+      if(m.getNim().equals(nim)) return m;
+    }
+    return null;
+  }
+  private Dosen getDosen(ArrayList<Dosen> list, String nip){
+    for(Dosen d : list){
+      if(d.getNip().equals(nip)) return d;
     }
     return null;
   }

@@ -20,12 +20,14 @@ public class Dosen extends Orang{
   
   public Dosen(){
     super();
+    this.topikTA = new KelompokTA[3];
+    jum=0;
   }
   
   public Dosen(String nama, Date tgl, String address, String telp, String nip, boolean statusPembimbing){
     super(nama, tgl, address, telp);
     this.nip = nip;
-    this.statusPembimbing = false;
+    this.statusPembimbing = statusPembimbing;
     this.topikTA = new KelompokTA[3];
     jum =0;
   }
