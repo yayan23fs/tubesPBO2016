@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 13, 2016 at 05:23 PM
+-- Generation Time: Apr 26, 2016 at 01:08 PM
 -- Server version: 10.1.9-MariaDB
 -- PHP Version: 5.6.15
 
@@ -35,6 +35,14 @@ CREATE TABLE `dosen` (
   `status` tinyint(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Dumping data for table `dosen`
+--
+
+INSERT INTO `dosen` (`nama`, `tglLahir`, `alamat`, `telp`, `nip`, `status`) VALUES
+('bapakatauibu', '1980-03-25', 'Buah Batu regency', '08560316906', '1111', 1),
+('ibuibu', '1980-04-20', 'permata buah batu', '085603176907', '22223333', 0);
+
 -- --------------------------------------------------------
 
 --
@@ -45,6 +53,15 @@ CREATE TABLE `kelompokta` (
   `topik` varchar(30) NOT NULL,
   `dosen` varchar(9) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `kelompokta`
+--
+
+INSERT INTO `kelompokta` (`topik`, `dosen`) VALUES
+('biometric_sensor', '1111'),
+('internet_of_things', '1111'),
+('topik3', '1111');
 
 -- --------------------------------------------------------
 
@@ -62,6 +79,13 @@ CREATE TABLE `mahasiswa` (
   `topik` varchar(30) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Dumping data for table `mahasiswa`
+--
+
+INSERT INTO `mahasiswa` (`nama`, `tglLahir`, `alamat`, `telp`, `nim`, `status`, `topik`) VALUES
+('Fauzan Yayan', '1991-04-23', 'jl. sukabirus', '081295787200', '1103091173', 0, NULL);
+
 -- --------------------------------------------------------
 
 --
@@ -75,6 +99,13 @@ CREATE TABLE `tugasakhir` (
   `pembimbing2` varchar(9) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Dumping data for table `tugasakhir`
+--
+
+INSERT INTO `tugasakhir` (`nim`, `judul`, `pembimbing1`, `pembimbing2`) VALUES
+('1103091173', 'sistem identifikasi', 'null', '1111');
+
 -- --------------------------------------------------------
 
 --
@@ -87,6 +118,15 @@ CREATE TABLE `user` (
   `kode` varchar(10) NOT NULL,
   `isdosen` tinyint(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `user`
+--
+
+INSERT INTO `user` (`username`, `password`, `kode`, `isdosen`) VALUES
+('dosen1', 'dosen1', '1111', 1),
+('dosen2', 'dosen2', '22223333', 1),
+('mahas1', 'mahas1', '1103091173', 0);
 
 --
 -- Indexes for dumped tables
