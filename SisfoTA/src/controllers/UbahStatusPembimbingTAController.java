@@ -18,7 +18,7 @@ import view.UbahStatusPembimbingTA;
 
 /**
  *
- * @author BagusThanatos (github.com/BagusThanatos)
+ * @author YAYAN
  */
 public class UbahStatusPembimbingTAController implements ActionListener{
   UbahStatusPembimbingTA b;

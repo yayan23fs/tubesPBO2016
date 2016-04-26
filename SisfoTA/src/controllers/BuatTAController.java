@@ -14,7 +14,7 @@ import view.BuatTA;
 
 /**
  *
- * @author BagusThanatos (github.com/BagusThanatos)
+ * @author YAYAN
  */
 public class BuatTAController implements ActionListener {
   BuatTA b ;

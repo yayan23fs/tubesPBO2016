@@ -13,7 +13,7 @@ import view.RevisiJudulTA;
 
 /**
  *
- * @author BagusThanatos (github.com/BagusThanatos)
+ * @author YAYAN
  */
 public class RevisiJudulController implements ActionListener{
   RevisiJudulTA b;

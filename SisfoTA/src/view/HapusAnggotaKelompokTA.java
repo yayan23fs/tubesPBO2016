@@ -89,9 +89,6 @@ public class HapusAnggotaKelompokTA extends javax.swing.JFrame {
     textNIM = new javax.swing.JTextField();
     butCek2 = new javax.swing.JButton();
     butHapusKeanggotaan = new javax.swing.JButton();
-    jLabel4 = new javax.swing.JLabel();
-    jLabel5 = new javax.swing.JLabel();
-    jLabel6 = new javax.swing.JLabel();
 
     jLabel1.setText("Hapus Anggota Kelompok TA");
 
@@ -104,12 +101,6 @@ public class HapusAnggotaKelompokTA extends javax.swing.JFrame {
     butCek2.setText("Cek");
 
     butHapusKeanggotaan.setText("Hapus Keanggotaan");
-
-    jLabel4.setText("Mahasiswa Sukses Terhapus");
-
-    jLabel5.setText("Kelompok TA tidak ada!");
-
-    jLabel6.setText("Mahasiswa tidak terdaftar!");
 
     javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
     jPanel1.setLayout(jPanel1Layout);
@@ -137,14 +128,8 @@ public class HapusAnggotaKelompokTA extends javax.swing.JFrame {
               .addComponent(butCek)
               .addComponent(butCek2)))
           .addGroup(jPanel1Layout.createSequentialGroup()
-            .addGap(108, 108, 108)
-            .addComponent(jLabel5))
-          .addGroup(jPanel1Layout.createSequentialGroup()
-            .addGap(96, 96, 96)
-            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-              .addComponent(jLabel6)
-              .addComponent(jLabel4)
-              .addComponent(butHapusKeanggotaan))))
+            .addGap(103, 103, 103)
+            .addComponent(butHapusKeanggotaan)))
         .addContainerGap(65, Short.MAX_VALUE))
     );
     jPanel1Layout.setVerticalGroup(
@@ -157,20 +142,14 @@ public class HapusAnggotaKelompokTA extends javax.swing.JFrame {
           .addComponent(jLabel2)
           .addComponent(textTopik, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
           .addComponent(butCek))
-        .addGap(12, 12, 12)
-        .addComponent(jLabel5)
-        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+        .addGap(32, 32, 32)
         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
           .addComponent(jLabel3)
           .addComponent(textNIM, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
           .addComponent(butCek2))
-        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-        .addComponent(jLabel6)
-        .addGap(18, 18, 18)
+        .addGap(38, 38, 38)
         .addComponent(butHapusKeanggotaan)
-        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-        .addComponent(jLabel4)
-        .addContainerGap(44, Short.MAX_VALUE))
+        .addContainerGap(69, Short.MAX_VALUE))
     );
 
     javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -235,9 +214,6 @@ public class HapusAnggotaKelompokTA extends javax.swing.JFrame {
   private javax.swing.JLabel jLabel1;
   private javax.swing.JLabel jLabel2;
   private javax.swing.JLabel jLabel3;
-  private javax.swing.JLabel jLabel4;
-  private javax.swing.JLabel jLabel5;
-  private javax.swing.JLabel jLabel6;
   private javax.swing.JPanel jPanel1;
   private javax.swing.JTextField textNIM;
   private javax.swing.JTextField textTopik;

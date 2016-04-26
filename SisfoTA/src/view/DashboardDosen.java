@@ -110,7 +110,7 @@ public class DashboardDosen extends javax.swing.JFrame {
 
     butTambahAnggotaKelompokTA.setText("Tambah Anggota Kelompok TA");
 
-    butHapusAnggotaKelompokTA.setText("Hapus Anggota Kelompk TA");
+    butHapusAnggotaKelompokTA.setText("Hapus Anggota Kelompok TA");
 
     butLihatSemuaKelompokTA.setText("Lihat Semua Kelompok TA");
 

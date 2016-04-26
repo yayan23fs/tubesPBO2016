@@ -13,7 +13,7 @@ import view.RevisiJudulTA;
 
 /**
  *
- * @author BagusThanatos (github.com/BagusThanatos)
+ * @author YAYAN
  */
 public class DashboardMahasiswaController implements ActionListener{
   DashboardMahasiswa b;

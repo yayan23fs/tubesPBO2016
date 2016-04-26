@@ -17,7 +17,7 @@ import view.TambahAnggotaKelompokTA;
 
 /**
  *
- * @author BagusThanatos (github.com/BagusThanatos)
+ * @author YAYAN
  */
 public class TambahAnggotaKelompokTAController implements ActionListener{
   TambahAnggotaKelompokTA b;

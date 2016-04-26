@@ -18,7 +18,7 @@ import view.HapusAnggotaKelompokTA;
 
 /**
  *
- * @author BagusThanatos (github.com/BagusThanatos)
+ * @author YAYAN
  */
 public class HapusAnggotaKelompokTAController implements ActionListener{
   HapusAnggotaKelompokTA b;

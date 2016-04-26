@@ -19,7 +19,7 @@ import view.Login;
 
 /**
  *
- * @author BagusThanatos (github.com/BagusThanatos)
+ * @author YAYAN
  */
 public class LoginController implements ActionListener{
   Login b ;

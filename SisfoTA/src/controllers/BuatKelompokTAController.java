@@ -14,7 +14,7 @@ import view.BuatKelompokTA;
 
 /**
  *
- * @author BagusThanatos (github.com/BagusThanatos)
+ * @author YAYAN)
  */
 public class BuatKelompokTAController implements ActionListener{
   private BuatKelompokTA b;

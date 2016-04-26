@@ -108,7 +108,7 @@
         </Component>
         <Component class="javax.swing.JButton" name="butHapusAnggotaKelompokTA">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Hapus Anggota Kelompk TA"/>
+            <Property name="text" type="java.lang.String" value="Hapus Anggota Kelompok TA"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JButton" name="butLihatSemuaKelompokTA">

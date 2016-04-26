@@ -17,7 +17,7 @@ import view.UbahStatusPembimbingTA;
 
 /**
  *
- * @author BagusThanatos (github.com/BagusThanatos)
+ * @author YAYAN
  */
 public class DashboardDosenController implements ActionListener{
   DashboardDosen b;
